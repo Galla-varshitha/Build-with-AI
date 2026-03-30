@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&family=Share+Tech+Mono&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Orbitron", sans-serif;
+  --font-digital: "Share Tech Mono", monospace;
+  
+  --color-neon-pink: #ff00ff;
+  --color-neon-blue: #00f2ff;
+  --color-neon-purple: #bc13fe;
+  --color-neon-green: #39ff14;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0a0a0c] text-white font-sans antialiased;
+  }
+}
+
+.neon-border {
+  box-shadow: 0 0 5px theme('colors.neon-blue'), 0 0 15px theme('colors.neon-blue');
+  border: 2px solid theme('colors.neon-blue');
+}
+
+.neon-text-blue {
+  text-shadow: 0 0 5px theme('colors.neon-blue'), 0 0 15px theme('colors.neon-blue'), 0 0 30px theme('colors.neon-blue');
+}
+
+.neon-text-pink {
+  text-shadow: 0 0 5px theme('colors.neon-pink'), 0 0 15px theme('colors.neon-pink'), 0 0 30px theme('colors.neon-pink');
+}
+
+.neon-text-green {
+  text-shadow: 0 0 5px theme('colors.neon-green'), 0 0 15px theme('colors.neon-green');
+}
+
+.neon-box-pink {
+  box-shadow: 0 0 15px theme('colors.neon-pink'), inset 0 0 5px theme('colors.neon-pink');
+  border: 2px solid theme('colors.neon-pink');
+}
+
+.neon-box-purple {
+  box-shadow: 0 0 15px theme('colors.neon-purple'), inset 0 0 5px theme('colors.neon-purple');
+  border: 2px solid theme('colors.neon-purple');
+}
+
+@keyframes pulse-neon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); text-shadow: 2px 0 #ff00ff, -2px 0 #00f2ff; }
+  25% { transform: translate(2px, -2px); text-shadow: -2px 0 #ff00ff, 2px 0 #00f2ff; }
+  50% { transform: translate(-2px, 2px); text-shadow: 2px 0 #ff00ff, -2px 0 #00f2ff; }
+  75% { transform: translate(2px, 2px); text-shadow: -2px 0 #ff00ff, 2px 0 #00f2ff; }
+  100% { transform: translate(0); text-shadow: 2px 0 #ff00ff, -2px 0 #00f2ff; }
+}
+
+.animate-glitch {
+  animation: glitch 0.2s infinite;
+}
